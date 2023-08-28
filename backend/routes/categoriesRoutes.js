@@ -28,16 +28,4 @@ categoriesRouter.get("/get-all", (req, res) => {
     });
 });
 
-categoriesRouter.post("/add-category", (req, res) => {
-  const Categories = new categoriesModel({ name: req.body.name });
-  Categories.save()
-    .then(() => {
-      res.status(201).json({ status: "success" });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(400);
-    });
-});
-
 export default categoriesRouter;
