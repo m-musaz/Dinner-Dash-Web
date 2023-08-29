@@ -3,10 +3,7 @@ import styles from "./ItemCard.module.css";
 
 function ItemCard({ title, description, price, imgUrl }) {
   return (
-    <div
-      className="card text-white shadow-lg mb-5"
-      style={{ width: "20rem", minHeight: "10rem", backgroundColor: "#1e1e1e" }}
-    >
+    <div className={`card text-white shadow-lg mb-5 ${styles.crd}`}>
       <img
         className="mt-3 rounded-circle"
         src={imgUrl}

@@ -69,7 +69,9 @@ const Home = () => {
             </div>
             <div className={`row ${styles.newitemsbg}`}>
               <div className="col-12 my-5">
-                <h1>Delightful Additions</h1>
+                <h1 className={`${styles.boldheading}`}>
+                  Delightful Additions
+                </h1>
                 <button
                   className={`btn my-5 px-3 rounded-pill ${styles.allitmbtn}`}
                 >

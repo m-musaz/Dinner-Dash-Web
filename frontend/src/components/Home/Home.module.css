@@ -15,6 +15,9 @@
   color: white;
   font-style: italic !important;
 }
+.boldheading {
+  font-weight: bold !important;
+}
 .mainbtntxt {
   font-weight: 800 !important;
   font-size: larger !important;
