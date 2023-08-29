@@ -1,0 +1,15 @@
+.rowbg {
+  background: url("../../assets/home_backdrop.jpg") center / cover no-repeat;
+  height: 25rem;
+}
+.boldtxt {
+  font-weight: bold !important;
+  color: white;
+  font-style: italic !important;
+}
+.mainbtntxt {
+  font-weight: 800 !important;
+  font-size: larger !important;
+  color: #ffb900 !important;
+  font-style: italic !important;
+}
