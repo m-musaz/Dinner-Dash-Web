@@ -27,7 +27,7 @@ function Navbar() {
             <button className={`btn btn-light mx-2 px-2 ${styles.navbtn}`}>
               Sign Up
             </button>
-            <Badge badgeContent={2} color="primary">
+            <Badge badgeContent={2} className="text-black" color="error">
               <ShoppingCartIcon className="text-white" fontSize="large" />
             </Badge>
           </div>

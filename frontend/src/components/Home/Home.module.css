@@ -6,6 +6,10 @@
   background-color: #1e1e1e;
   color: #ff5733;
 }
+.newitemsbg {
+  background-color: #e5e2e2;
+  color: #1e1e1e;
+}
 .boldtxt {
   font-weight: bold !important;
   color: white;
@@ -23,4 +27,11 @@
   background-color: #ff5733 !important;
   font-style: italic !important;
   color: white !important;
+}
+.allitmbtn {
+  background-color: #1e1e1e !important;
+  font-weight: 800 !important;
+  font-size: larger !important;
+  color: white !important;
+  font-style: italic !important;
 }

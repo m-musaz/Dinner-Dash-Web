@@ -26,6 +26,20 @@ itemsRouter.get("/get-all", (req, res) => {
       res.status(404);
     });
 });
+itemsRouter.get("/get-latest", (req, res) => {
+  itemModel
+    .find({})
+    .sort({ _id: -1 })
+    .limit(10)
+    .then((result) => {
+      console.log(result);
+      res.status(201).json({ status: "success", data: result });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(404);
+    });
+});
 
 itemsRouter.get("/category-items", (req, res) => {
   const reqCategories = req.body;
