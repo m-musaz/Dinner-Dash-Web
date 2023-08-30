@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../Home/Navbar";
 import styles from "./Checkout.module.css";
 import TableRow from "./TableRow";
+import axios from "axios";
+import handleCart from "../../Util/HandleCart";
+import { useNavigate } from "react-router";
 
 function Checkout() {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const [user, setUser] = useState({});
+  const navigate = useNavigate();
   useEffect(() => {
     // Load cart from local store if present
     const cartFromStorage = JSON.parse(localStorage.getItem("cart"));
@@ -22,6 +26,31 @@ function Checkout() {
     }
   }, []);
 
+  const handleCheckout = async () => {
+    console.log(cart);
+    const orders = cart.map((item) => {
+      return { itemId: item.itemId, quantity: item.quantity };
+    });
+    if (!orders.length) {
+      alert("Cart is Empty");
+    } else {
+      try {
+        const res = await axios.post(
+          `http://localhost:3000/user/save-order`,
+          {
+            order: orders,
+          },
+          { headers: { secret_token: user.token } }
+        );
+        handleCart(cart, setCart, "1", 1, 1, 1, false, true);
+        alert("You Order is Placed");
+        navigate("/");
+      } catch (err) {
+        alert(err);
+      }
+    }
+  };
+
   useEffect(() => {
     let val = 0;
     cart.forEach((item) => {
@@ -30,8 +59,6 @@ function Checkout() {
     setTotal(val);
     if (cart.length) {
       localStorage.setItem("cart", JSON.stringify(cart));
-    } else {
-      console.log(cart, "else mein");
     }
   }, [cart]);
   return (
@@ -83,6 +110,7 @@ function Checkout() {
               {Object.keys(user).length ? (
                 <button
                   className={`mb-4 py-2 rounded-pill ${styles.checkoutbtn}`}
+                  onClick={handleCheckout}
                 >
                   CheckOut
                 </button>

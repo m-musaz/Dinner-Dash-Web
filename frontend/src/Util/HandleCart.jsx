@@ -7,8 +7,14 @@ const handleCart = (
   quantity,
   title,
   price,
-  checkOut
+  checkOut,
+  Clear
 ) => {
+  if (Clear) {
+    setCart([]);
+    localStorage.setItem("cart", JSON.stringify([]));
+    return;
+  }
   if (!cart.length) {
     setCart([
       {

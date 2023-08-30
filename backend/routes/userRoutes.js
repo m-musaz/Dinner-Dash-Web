@@ -21,21 +21,25 @@ userRouter.post("/save-order", async (req, res, next) => {
   const user_id = req.user._id;
   const order = req.body.order;
 
-  const db_order = new ordersModel({
-    status: false,
-    items: order,
-  });
+  if (!order.length) {
+    res.status(500).end("Your Order is Empty");
+  } else {
+    const db_order = new ordersModel({
+      status: false,
+      items: order,
+    });
 
-  const user = await usersModel.findById(user_id);
-  user.orders.push(db_order._id);
+    const user = await usersModel.findById(user_id);
+    user.orders.push(db_order._id);
 
-  try {
-    await db_order.save();
-    await user.save();
-    res.status(201).send("Order and User Saved");
-  } catch (err) {
-    console.log(err);
-    res.status(500).send("An error occurred");
+    try {
+      await db_order.save();
+      await user.save();
+      res.status(201).send("Order Saved");
+    } catch (err) {
+      console.log(err);
+      res.status(500).send("An error occurred");
+    }
   }
 });
 

@@ -14,7 +14,6 @@ function Navbar({ cart, user, setUser }) {
     const token = JSON.parse(localStorage.getItem("user"));
     if (token) {
       if (Object.keys(token).length) {
-        console.log(token, "this is token");
         setUser(token);
       }
     }
