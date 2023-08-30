@@ -1,0 +1,15 @@
+.navtext {
+  font-family: "Bowlby One";
+  font-weight: normal;
+  padding-left: 5px;
+}
+.navcolor {
+  background-color: #1e1e1e;
+}
+.navbtn {
+  font-weight: 800 !important;
+  font-size: larger !important;
+  color: #1e1e1e !important;
+  font-style: italic !important;
+  border-radius: 15px !important;
+}

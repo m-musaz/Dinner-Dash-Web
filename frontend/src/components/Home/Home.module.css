@@ -1,0 +1,40 @@
+.landingbg {
+  background: url("../../assets/home_backdrop.jpg") center / cover no-repeat;
+  height: 25rem;
+}
+.categoriesbg {
+  background-color: #1e1e1e;
+  color: #ff5733;
+}
+.newitemsbg {
+  background-color: #e5e2e2;
+  color: #1e1e1e;
+}
+.boldtxt {
+  font-weight: bold !important;
+  color: white;
+  font-style: italic !important;
+}
+.boldheading {
+  font-weight: bold !important;
+}
+.mainbtntxt {
+  font-weight: 800 !important;
+  font-size: larger !important;
+  color: #ffb900 !important;
+  font-style: italic !important;
+}
+.categorybtn {
+  font-weight: 800 !important;
+  font-size: larger !important;
+  background-color: #ff5733 !important;
+  font-style: italic !important;
+  color: white !important;
+}
+.allitmbtn {
+  background-color: #1e1e1e !important;
+  font-weight: 800 !important;
+  font-size: larger !important;
+  color: white !important;
+  font-style: italic !important;
+}

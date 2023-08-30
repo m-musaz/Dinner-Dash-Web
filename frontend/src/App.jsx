@@ -1,12 +1,14 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
-import home from "./components/home";
+import Home from "./components/Home/Home";
+import Checkout from "./components/Checkout/Checkout";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/home" element={<home />}></Route>
+        <Route path="*" element={<Home />}></Route>
+        <Route path="/view-cart" element={<Checkout />}></Route>
       </Routes>
     </Router>
   );

@@ -1,0 +1,15 @@
+.categoriesbg {
+  background-color: #1e1e1e;
+  color: #ff5733;
+}
+.outercontainer {
+  height: 100vh;
+  background-color: #1e1e1e;
+}
+.checkoutbtn {
+  font-weight: 500 !important;
+  font-size: larger !important;
+  color: 11ee1e !important;
+  border-radius: 15px !important;
+  background-color: white !important;
+}

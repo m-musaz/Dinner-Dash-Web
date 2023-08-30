@@ -11,7 +11,7 @@ const ordersSchema = new mongo.Schema({
     {
       itemId: { type: mongo.Schema.Types.ObjectId, ref: "items" },
       quantity: Number,
-      sub_total: { type: mongo.Schema.Types.Decimal128 },
+      subTotal: { type: mongo.Schema.Types.Decimal128 },
     },
   ],
   orderTotal: { type: mongo.Schema.Types.Decimal128 },
@@ -27,8 +27,8 @@ ordersSchema.pre("save", async function (next) {
       .findById(item?.itemId)
       .select({ price: 1, _id: 0 });
 
-    item.sub_total = itemObj?.price * item?.quantity;
-    total += Number(item.sub_total);
+    item.subTotal = itemObj?.price * item?.quantity;
+    total += Number(item.subTotal);
   }
   this.orderTotal = total;
   next();

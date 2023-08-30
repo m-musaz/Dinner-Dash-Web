@@ -1,0 +1,11 @@
+.cardbtn {
+  background-color: white !important;
+  font-weight: 800 !important;
+  color: #1e1e1e !important;
+  border-radius: 10px !important;
+}
+.crd {
+  width: 20rem !important;
+  min-height: 10rem !important;
+  background-color: #1e1e1e !important;
+}
