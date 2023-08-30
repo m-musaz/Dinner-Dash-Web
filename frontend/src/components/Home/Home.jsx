@@ -8,6 +8,7 @@ import ItemCard from "../ItemCard";
 const Home = () => {
   const [categories, setCategories] = useState([]);
   const [items, setItems] = useState([]);
+  const [cart, setCart] = useState([]);
   // const [loading, setLoading] = useState(false);
 
   async function fetchCategories() {
@@ -30,17 +31,30 @@ const Home = () => {
     }
   }
 
+  //
   useEffect(() => {
     fetchCategories();
     fetchItems();
+    // Load cart from local store if present
+    const cartFromStorage = JSON.parse(localStorage.getItem("cart"));
+    if (cartFromStorage) {
+      setCart(cartFromStorage);
+    }
   }, []);
+
+  // Updating LocalStorage
+  useEffect(() => {
+    if (cart.length) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }, [cart]);
 
   return (
     <>
       <div className={`container-fluid p-0 overflow-hidden`}>
         <div className="row ">
           <div className={`col-12`}>
-            <Navbar />
+            <Navbar cart={cart} />
             <div className={`row ${styles.landingbg}`}>
               <div className="col-12">
                 <img src={DD}></img>
@@ -80,14 +94,17 @@ const Home = () => {
                 <div className="row justify-content-evenly">
                   {items?.map((item) => (
                     <ItemCard
+                      itemID={item._id}
                       title={item.title}
                       description={item.description}
                       price={item.price.$numberDecimal}
                       imgUrl={item.photoUrl}
                       key={item._id}
+                      cart={cart}
+                      setCart={setCart}
                     />
                   ))}
-                  {items?.map((item) => (
+                  {/* {items?.map((item) => (
                     <ItemCard
                       title={item.title}
                       description={item.description}
@@ -113,7 +130,7 @@ const Home = () => {
                       imgUrl={item.photoUrl}
                       key={item._id}
                     />
-                  ))}
+                  ))} */}
                 </div>
               </div>
             </div>

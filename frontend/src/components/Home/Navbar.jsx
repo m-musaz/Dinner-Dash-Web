@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import DD from "../../assets/DD_logo_2.png";
 import styles from "./Navbar.module.css";
 import { IconButton } from "@mui/material";
 import { Badge } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-function Navbar() {
+function Navbar({ cart }) {
+  const [cartSize, setCartSize] = useState();
+  useEffect(() => {
+    setCartSize(cart.length);
+  }, [cart]);
+
   return (
     <div className="row">
       <div className="col-12">
@@ -27,7 +32,7 @@ function Navbar() {
             <button className={`btn btn-light mx-2 px-2 ${styles.navbtn}`}>
               Sign Up
             </button>
-            <Badge badgeContent={2} className="text-black" color="error">
+            <Badge badgeContent={cartSize} className="text-black" color="error">
               <ShoppingCartIcon className="text-white" fontSize="large" />
             </Badge>
           </div>
