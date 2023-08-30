@@ -9,7 +9,7 @@ const handleCart = (
   price,
   checkOut
 ) => {
-  if (cart === []) {
+  if (!cart.length) {
     setCart([
       {
         itemId: itemID,
