@@ -28,6 +28,9 @@ const handleCart = (
         if (quantity === 0) {
           const newCart = cart.filter((item) => item.itemId != itemID);
           setCart([...newCart]);
+          if (newCart.length === 0) {
+            localStorage.setItem("cart", JSON.stringify(newCart));
+          }
           return;
         }
       }

@@ -11,7 +11,7 @@ const Auth = () => {
   const location = useLocation();
 
   useEffect(() => {
-    location.search == "?signout=true" ? setformstate(true) : false;
+    location.search == "?signup=true" ? setformstate(true) : false;
   }, []);
 
   return (

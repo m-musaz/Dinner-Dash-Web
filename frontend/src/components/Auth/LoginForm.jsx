@@ -4,28 +4,39 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import validationSchema from "../../schema/loginvalidation";
 import LoginFormInitialVals from "../../constants/loginFormConstants";
+import axios from "axios";
 
 function LoginForm({ statefun }) {
   const navigate = useNavigate();
-  const [password, setPassword] = useState("");
   const [fetchedUser, setfetchedUser] = useState(null);
 
-  const handleSubmit = (values) => {
+  const handleSubmit = async (values) => {
     console.log("login");
-    // setfetchedUser(JSON.parse(localStorage.getItem(`${values.email}`)));
-    // setPassword(formik.values.password);
+    try {
+      const res = await axios.post(`http://localhost:3000/login`, {
+        email: values.email,
+        password: values.password,
+      });
+      if (res) {
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
+            user: res.data.body,
+            token: res.data.token,
+          })
+        );
+        setfetchedUser(res.data.token);
+      }
+    } catch (err) {
+      alert(err);
+    }
   };
 
-  //   useEffect(() => {
-  //     if (fetchedUser) {
-  //       if (password == fetchedUser.password) {
-  //         localStorage.setItem("LoggedIn", JSON.stringify(fetchedUser));
-  //         navigate("/feed");
-  //       } else {
-  //         alert("incorrect password");
-  //       }
-  //     }
-  //   }, [fetchedUser]);
+  useEffect(() => {
+    if (fetchedUser != null) {
+      navigate("/");
+    }
+  }, [fetchedUser]);
 
   const formik = useFormik({
     initialValues: { LoginFormInitialVals },

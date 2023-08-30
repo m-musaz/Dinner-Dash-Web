@@ -6,16 +6,23 @@ import TableRow from "./TableRow";
 function Checkout() {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
+  const [user, setUser] = useState({});
   useEffect(() => {
     // Load cart from local store if present
     const cartFromStorage = JSON.parse(localStorage.getItem("cart"));
     if (cartFromStorage) {
       setCart(cartFromStorage);
     }
+    const token = JSON.parse(localStorage.getItem("user"));
+    if (token) {
+      if (Object.keys(token).length) {
+        console.log(token, "this is token");
+        setUser(token);
+      }
+    }
   }, []);
 
   useEffect(() => {
-    // Load cart from local store if present
     let val = 0;
     cart.forEach((item) => {
       val += item.subTotal;
@@ -24,7 +31,7 @@ function Checkout() {
     if (cart.length) {
       localStorage.setItem("cart", JSON.stringify(cart));
     } else {
-      console.log("empty");
+      console.log(cart, "else mein");
     }
   }, [cart]);
   return (
@@ -34,10 +41,17 @@ function Checkout() {
       >
         <div className="row ">
           <div className={`col-12`}>
-            <Navbar cart={cart} />
+            <Navbar cart={cart} user={user} setUser={setUser} />
             <div className={`row py-3 ${styles.categoriesbg}`}>
               <div className="col-12 my-5">
-                <h1 className="pb-5">CheckOut</h1>
+                {Object.keys(user).length ? (
+                  <>
+                    <h1>{user.user.fullName}'s</h1>
+                    <h1 className="pb-5">Cart</h1>
+                  </>
+                ) : (
+                  <h1 className="pb-5">Your Cart</h1>
+                )}
                 <table className="table">
                   <thead>
                     <tr>
@@ -65,12 +79,14 @@ function Checkout() {
                   </tbody>
                 </table>
               </div>
-              <h1 className="pb-5">Total: {total} PKR</h1>
-              <button
-                className={`mb-4 py-2 rounded-pill ${styles.checkoutbtn}`}
-              >
-                CheckOut
-              </button>
+              <h1 className="">Total: {total} PKR</h1>
+              {Object.keys(user).length ? (
+                <button
+                  className={`mb-4 py-2 rounded-pill ${styles.checkoutbtn}`}
+                >
+                  CheckOut
+                </button>
+              ) : undefined}
             </div>
           </div>
         </div>

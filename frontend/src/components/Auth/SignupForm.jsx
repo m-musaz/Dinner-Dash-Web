@@ -3,29 +3,26 @@ import styles from "./Auth.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import validationSchema from "../../schema/signupvalidation";
 import initialValues from "../../constants/signupFormConstants";
+import axios from "axios";
 
 function SignupForm({ statefun }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const handleSubmit = (values) => {
-    // if (localStorage.getItem("UserCount") == null) {
-    //   localStorage.setItem("UserCount", 1);
-    // }
-    // localStorage.setItem(
-    //   `${values.email}`,
-    //   JSON.stringify({
-    //     id: localStorage.getItem("UserCount"),
-    //     name: `${values.name}`,
-    //     email: `${values.email}`,
-    //     password: `${values.password}`,
-    //   })
-    // );
-    // localStorage.setItem(
-    //   "UserCount",
-    //   parseInt(localStorage.getItem("UserCount")) + 1
-    // );
-    statefun(false);
+  const handleSubmit = async (values) => {
+    try {
+      const res = await axios.post(`http://localhost:3000/signup`, {
+        fullName: values.name,
+        email: values.email,
+        password: values.password,
+      });
+      if (res) {
+        console.log(res);
+        statefun(false);
+      }
+    } catch (err) {
+      alert("User Already Exists");
+    }
   };
 
   const handleClick = () => {

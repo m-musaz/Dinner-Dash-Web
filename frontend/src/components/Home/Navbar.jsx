@@ -6,13 +6,28 @@ import { Badge } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useNavigate } from "react-router-dom";
 
-function Navbar({ cart }) {
+function Navbar({ cart, user, setUser }) {
   const [cartSize, setCartSize] = useState();
   const navigate = useNavigate();
 
   useEffect(() => {
+    const token = JSON.parse(localStorage.getItem("user"));
+    if (token) {
+      if (Object.keys(token).length) {
+        console.log(token, "this is token");
+        setUser(token);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
     setCartSize(cart.length);
   }, [cart]);
+
+  const handleLogOut = () => {
+    localStorage.setItem("user", JSON.stringify({}));
+    setUser({});
+  };
 
   return (
     <div className="row">
@@ -34,16 +49,37 @@ function Navbar({ cart }) {
             Dinner Dash
           </a>
           <div className="px-3">
-            <button className={`btn btn-light mx-2 px-2 ${styles.navbtn}`}>
-              Login
-            </button>
-            <button className={`btn btn-light mx-2 px-2 ${styles.navbtn}`}>
-              Sign Up
-            </button>
+            {Object.keys(user).length ? (
+              <button
+                className={`btn btn-light mx-2 px-2 ${styles.navbtn}`}
+                onClick={handleLogOut}
+              >
+                Log Out
+              </button>
+            ) : (
+              <>
+                <button
+                  className={`btn btn-light mx-2 px-2 ${styles.navbtn}`}
+                  onClick={() => {
+                    navigate("/auth");
+                  }}
+                >
+                  Login
+                </button>
+                <button
+                  className={`btn btn-light mx-2 px-2 ${styles.navbtn}`}
+                  onClick={() => {
+                    navigate("/auth?signup=true");
+                  }}
+                >
+                  Sign Up
+                </button>
+              </>
+            )}
+
             <Badge badgeContent={cartSize} className="text-black" color="error">
               <div
                 onClick={() => {
-                  console.log("showcart");
                   navigate("/view-cart");
                 }}
               >

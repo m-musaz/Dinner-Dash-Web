@@ -9,13 +9,12 @@ const Home = () => {
   const [categories, setCategories] = useState([]);
   const [items, setItems] = useState([]);
   const [cart, setCart] = useState([]);
-  // const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState({});
 
   async function fetchCategories() {
     try {
       const res = await axios.get(`http://localhost:3000/categories/get-all`);
       setCategories(res?.data.data);
-      // res !== null ? setLoading(false) : undefined;
     } catch (err) {
       console.log(err);
     }
@@ -23,9 +22,7 @@ const Home = () => {
   async function fetchItems() {
     try {
       const res = await axios.get(`http://localhost:3000/items/get-latest`);
-      console.log(res?.data.data);
       setItems(res?.data.data);
-      // res !== null ? setLoading(false) : undefined;
     } catch (err) {
       console.log(err);
     }
@@ -37,6 +34,12 @@ const Home = () => {
     fetchItems();
     // Load cart from local store if present
     const cartFromStorage = JSON.parse(localStorage.getItem("cart"));
+    const token = JSON.parse(localStorage.getItem("user"));
+    if (token) {
+      setUser(token);
+    } else {
+      setUser({});
+    }
     if (cartFromStorage) {
       setCart(cartFromStorage);
     }
@@ -54,7 +57,7 @@ const Home = () => {
       <div className={`container-fluid p-0 overflow-hidden`}>
         <div className="row ">
           <div className={`col-12`}>
-            <Navbar cart={cart} />
+            <Navbar cart={cart} user={user} setUser={setUser} />
             <div className={`row ${styles.landingbg}`}>
               <div className="col-12">
                 <img src={DD}></img>
