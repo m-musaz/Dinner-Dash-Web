@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./ItemCard.module.css";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
+import handleCart from "../Util/HandleCart";
 
 function ItemCard({
   itemID,
@@ -13,37 +14,10 @@ function ItemCard({
   setCart,
 }) {
   const [quantity, setQuantity] = useState(1);
-  const handleCart = () => {
-    if (cart === []) {
-      setCart([{ itemId: itemID, quantity: quantity }]);
-      // localStorage.setItem(
-      //   "cart",
-      //   JSON.stringify([{ itemId: itemID, quantity: quantity }])
-      // );
-    } else {
-      const existingItem = cart.find((item) => item.itemId === itemID);
-      if (existingItem) {
-        const newCart = cart.map((item) => {
-          if (item.itemId === existingItem.itemId) {
-            const newQautity = item.quantity + quantity;
-            return {
-              itemId: item.itemId,
-              quantity: newQautity,
-            };
-          }
-          return item;
-        });
-        setCart([...newCart]);
-        // localStorage.setItem("cart", JSON.stringify([...newCart]));
-      } else {
-        setCart([...cart, { itemId: itemID, quantity: quantity }]);
-        // localStorage.setItem(
-        //   "cart",
-        //   JSON.stringify([...cart, { itemId: itemID, quantity: quantity }])
-        // );
-      }
-    }
+  const handleClick = () => {
+    handleCart(cart, setCart, itemID, quantity, title, price);
   };
+
   return (
     <div className={`card text-white shadow-lg mb-5 ${styles.crd}`}>
       <img
@@ -59,7 +33,7 @@ function ItemCard({
         </div>
         <p className="card-text">{description}</p>
         <div className="col-12 d-flex justify-content-between">
-          <button className={`btn ${styles.cardbtn}`} onClick={handleCart}>
+          <button className={`btn ${styles.cardbtn}`} onClick={handleClick}>
             Add to Cart
           </button>
           <div
