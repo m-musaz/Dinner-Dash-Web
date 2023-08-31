@@ -3,14 +3,14 @@ import Navbar from "../Home/Navbar";
 import styles from "./History.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import HistoryCard from "./HistoryCard";
 
 function History() {
   const [cart, setCart] = useState([]);
   const [user, setUser] = useState({});
   const [orders, setOrders] = useState([]);
-  const navigate = useNavigate();
+
   useEffect(() => {
-    // Load cart from local store if present
     const cartFromStorage = JSON.parse(localStorage.getItem("cart"));
     if (cartFromStorage) {
       setCart(cartFromStorage);
@@ -18,7 +18,6 @@ function History() {
     const token = JSON.parse(localStorage.getItem("user"));
     if (token) {
       if (Object.keys(token).length) {
-        // console.log("user", user);
         setUser(token);
       }
     }
@@ -35,10 +34,11 @@ function History() {
       const res = await axios.get(`http://localhost:3000/user/get-orders`, {
         headers: { secret_token: user?.token },
       });
-      console.log(res);
-      setOrders(res.data.orders);
+      console.log(res?.data?.orders);
+      setOrders(res?.data?.orders);
     } catch (err) {
       console.log(err);
+      alert(err);
     }
   };
 
@@ -55,7 +55,16 @@ function History() {
             <Navbar cart={cart} user={user} setUser={setUser} />
             <div className={`row py-3`}>
               <div className="col-12 my-5 text-white">
-                <h1>Your Order History</h1>
+                <h1 className="mb-5">Your Order History</h1>
+                {orders.map((order, index) => (
+                  <HistoryCard
+                    index={index}
+                    key={order._id}
+                    total={order?.orderTotal?.$numberDecimal}
+                    items={order.items}
+                    status={order.status}
+                  />
+                ))}
               </div>
             </div>
           </div>

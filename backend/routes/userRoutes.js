@@ -25,7 +25,6 @@ userRouter.post("/save-order", async (req, res, next) => {
     res.status(500).end("Your Order is Empty");
   } else {
     const db_order = new ordersModel({
-      status: false,
       items: order,
     });
 
@@ -51,9 +50,12 @@ userRouter.get("/get-orders", async (req, res, next) => {
 
   const stringifiedOrders = orderIds.orders.map((item) => item.toString());
 
-  const orders = await ordersModel.find({
-    _id: { $in: stringifiedOrders },
-  });
+  const orders = await ordersModel
+    .find({
+      _id: { $in: stringifiedOrders },
+    })
+    .populate({ path: "items.itemId", model: "items" });
+  console.log(orders[0].items);
 
   res.json({
     user: req.user,

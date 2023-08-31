@@ -6,7 +6,7 @@ const mongo = mongoose;
 
 const ordersSchema = new mongo.Schema({
   orderTimeStamp: { type: Date, default: Date.now() },
-  status: { type: String, required: true },
+  status: { type: String, required: true, default: "ordered" },
   items: [
     {
       itemId: { type: mongo.Schema.Types.ObjectId, ref: "items" },
