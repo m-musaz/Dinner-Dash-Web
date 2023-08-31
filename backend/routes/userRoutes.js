@@ -45,12 +45,19 @@ userRouter.post("/save-order", async (req, res, next) => {
 
 userRouter.get("/get-orders", async (req, res, next) => {
   const user_id = req.user._id;
-  const orders = await usersModel
+  const orderIds = await usersModel
     .findById(user_id)
     .select({ _id: 0, orders: 1 });
+
+  const stringifiedOrders = orderIds.orders.map((item) => item.toString());
+
+  const orders = await ordersModel.find({
+    _id: { $in: stringifiedOrders },
+  });
+
   res.json({
     user: req.user,
-    orders: orders?.orders,
+    orders: orders,
   });
 });
 

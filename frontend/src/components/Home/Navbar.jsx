@@ -49,12 +49,22 @@ function Navbar({ cart, user, setUser }) {
           </a>
           <div className="px-3">
             {Object.keys(user).length ? (
-              <button
-                className={`btn btn-light mx-2 px-2 ${styles.navbtn}`}
-                onClick={handleLogOut}
-              >
-                Log Out
-              </button>
+              <>
+                <button
+                  className={`btn btn-light mx-2 px-2 ${styles.navbtn}`}
+                  onClick={() => {
+                    navigate("/view-history");
+                  }}
+                >
+                  Order History
+                </button>
+                <button
+                  className={`btn btn-light mx-2 px-2 ${styles.navbtn}`}
+                  onClick={handleLogOut}
+                >
+                  Log Out
+                </button>
+              </>
             ) : (
               <>
                 <button
