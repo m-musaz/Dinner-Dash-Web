@@ -11,6 +11,7 @@ function HistoryCard({ total, index, items, status }) {
         <div className="accordion" id="accordionExample">
           {items.map((item, index) => (
             <ItemCard
+              itemid={item.itemId._id}
               title={item.itemId.title}
               index={index}
               key={item._id}
