@@ -4,6 +4,7 @@ import styles from "./Home.module.css";
 import DD from "../../assets/DD_bg_logo_2.png";
 import axios from "axios";
 import ItemCard from "../ItemCard";
+import { useNavigate } from "react-router";
 
 const Home = () => {
   const [categories, setCategories] = useState([]);
@@ -11,6 +12,7 @@ const Home = () => {
   const [cart, setCart] = useState([]);
   const [user, setUser] = useState({});
 
+  const navigate = useNavigate();
   async function fetchCategories() {
     try {
       const res = await axios.get(`http://localhost:3000/categories/get-all`);
@@ -78,6 +80,9 @@ const Home = () => {
                   <button
                     className={`btn px-3 mx-4 mt-5 rounded-pill ${styles.categorybtn}`}
                     key={category._id}
+                    onClick={() => {
+                      navigate(`/categories?id=${category._id}`);
+                    }}
                   >
                     {category.name}
                   </button>
@@ -107,33 +112,42 @@ const Home = () => {
                       setCart={setCart}
                     />
                   ))}
-                  {/* {items?.map((item) => (
+                  {items?.map((item) => (
                     <ItemCard
+                      itemID={item._id}
                       title={item.title}
                       description={item.description}
                       price={item.price.$numberDecimal}
                       imgUrl={item.photoUrl}
                       key={item._id}
+                      cart={cart}
+                      setCart={setCart}
                     />
                   ))}
                   {items?.map((item) => (
                     <ItemCard
+                      itemID={item._id}
                       title={item.title}
                       description={item.description}
                       price={item.price.$numberDecimal}
                       imgUrl={item.photoUrl}
                       key={item._id}
+                      cart={cart}
+                      setCart={setCart}
                     />
                   ))}
                   {items?.map((item) => (
                     <ItemCard
+                      itemID={item._id}
                       title={item.title}
                       description={item.description}
                       price={item.price.$numberDecimal}
                       imgUrl={item.photoUrl}
                       key={item._id}
+                      cart={cart}
+                      setCart={setCart}
                     />
-                  ))} */}
+                  ))}
                 </div>
               </div>
             </div>

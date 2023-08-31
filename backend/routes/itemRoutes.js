@@ -38,7 +38,8 @@ itemsRouter.get("/get-latest", (req, res) => {
 });
 
 itemsRouter.get("/category-items", (req, res) => {
-  const reqCategories = req.body;
+  const reqCategories = req.query.catIDs;
+  console.log(req.query);
   itemModel
     .find({ categories: { $all: reqCategories } })
     .select({ __v: 0 })

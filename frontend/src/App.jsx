@@ -4,6 +4,7 @@ import Home from "./components/Home/Home";
 import Checkout from "./components/Checkout/Checkout";
 import Auth from "./components/Auth/Auth";
 import History from "./components/History/History";
+import CategoryItems from "./components/CategoryItems/CategoryItems";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/view-cart" element={<Checkout />}></Route>
         <Route path="/auth" element={<Auth />}></Route>
         <Route path="/view-history" element={<History />}></Route>
+        <Route path="/categories" element={<CategoryItems />}></Route>
       </Routes>
     </Router>
   );
