@@ -8,15 +8,6 @@ import itemModel from "../models/Items.js";
 const mongo = mongoose;
 const adminRouter = express.Router();
 
-mongo
-  .connect("mongodb://127.0.0.1:27017/dinnerDash")
-  .then(() => {
-    console.log("Connected to DB Item");
-  })
-  .catch((err) => {
-    console.log("Connection Failed", err);
-  });
-
 // create new item
 adminRouter.post("/add-item", (req, res, next) => {
   const req_item = req.body.item;

@@ -5,14 +5,7 @@ import itemModel from "../models/Items.js";
 const mongo = mongoose;
 const itemsRouter = express.Router();
 
-mongo
-  .connect("mongodb://127.0.0.1:27017/dinnerDash")
-  .then(() => {
-    console.log("Connected to DB Item");
-  })
-  .catch((err) => {
-    console.log("Connection Failed", err);
-  });
+
 
 itemsRouter.get("/get-all", (req, res) => {
   itemModel

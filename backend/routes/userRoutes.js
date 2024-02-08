@@ -6,15 +6,6 @@ import usersModel from "../models/Users.js";
 const mongo = mongoose;
 const userRouter = express.Router();
 
-mongo
-  .connect("mongodb://127.0.0.1:27017/dinnerDash")
-  .then(() => {
-    console.log("Connected to DB Item");
-  })
-  .catch((err) => {
-    console.log("Connection Failed", err);
-  });
-
 // vew past orders
 // save Order
 userRouter.post("/save-order", async (req, res, next) => {
@@ -55,7 +46,6 @@ userRouter.get("/get-orders", async (req, res, next) => {
       _id: { $in: stringifiedOrders },
     })
     .populate({ path: "items.itemId", model: "items" });
-  console.log(orders[0].items);
 
   res.json({
     user: req.user,

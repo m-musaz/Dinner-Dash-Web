@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import DD from "../../assets/DD_logo_2.png";
 import styles from "./Navbar.module.css";
-import { IconButton } from "@mui/material";
-import { Badge } from "@mui/material";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+// import { IconButton } from "@mui/material";
+// import { Badge } from "@mui/material";
+// import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useNavigate } from "react-router-dom";
 
 function Navbar({ cart, user, setUser }) {
@@ -86,15 +86,17 @@ function Navbar({ cart, user, setUser }) {
               </>
             )}
 
-            <Badge badgeContent={cartSize} className="text-black" color="error">
-              <div
-                onClick={() => {
-                  navigate("/view-cart");
-                }}
-              >
-                <ShoppingCartIcon className="text-white" fontSize="large" />
-              </div>
-            </Badge>
+            {/* <Badge badgeContent={cartSize} className="text-black" color="error"> */}
+            <div
+              className="text-white"
+              onClick={() => {
+                navigate("/view-cart");
+              }}
+            >
+              View Cart
+              {/* <ShoppingCartIcon className="text-white" fontSize="large" /> */}
+            </div>
+            {/* </Badge> */}
           </div>
         </nav>
       </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./ItemCard.module.css";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
-import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
+// import AddCircleIcon from "@mui/icons-material/AddCircle";
+// import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import handleCart from "../Util/HandleCart";
 
 function ItemCard({
@@ -22,7 +22,7 @@ function ItemCard({
     <div className={`card text-white shadow-lg mb-5 ${styles.crd}`}>
       <img
         className="mt-3 rounded-circle"
-        src={imgUrl}
+        src={"https://i.ibb.co/pv024pN/pexels-jang-s-699953.jpg"}
         alt="Item Image"
         height={"90%"}
       />
@@ -44,7 +44,7 @@ function ItemCard({
               }
             }}
           >
-            <RemoveCircleIcon />
+            -{/* <RemoveCircleIcon /> */}
           </div>
           <button className={`btn px-3 rounded-pill ${styles.cardbtn}`}>
             {quantity}
@@ -55,7 +55,7 @@ function ItemCard({
               setQuantity(quantity + 1);
             }}
           >
-            <AddCircleIcon />
+            +{/* <AddCircleIcon /> */}
           </div>
         </div>
       </div>
