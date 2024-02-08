@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import DD from "../../assets/DD_logo_2.png";
 import styles from "./Navbar.module.css";
-import { IconButton } from "@mui/material";
-import { Badge } from "@mui/material";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+// import { IconButton } from "@mui/material";
+// import { Badge } from "@mui/material";
+// import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useNavigate } from "react-router-dom";
 
 function Navbar({ cart }) {
@@ -40,7 +40,7 @@ function Navbar({ cart }) {
             <button className={`btn btn-light mx-2 px-2 ${styles.navbtn}`}>
               Sign Up
             </button>
-            <Badge badgeContent={cartSize} className="text-black" color="error">
+            {/* <Badge badgeContent={cartSize} className="text-black" color="error">
               <div
                 onClick={() => {
                   console.log("showcart");
@@ -49,7 +49,7 @@ function Navbar({ cart }) {
               >
                 <ShoppingCartIcon className="text-white" fontSize="large" />
               </div>
-            </Badge>
+            </Badge> */}
           </div>
         </nav>
       </div>

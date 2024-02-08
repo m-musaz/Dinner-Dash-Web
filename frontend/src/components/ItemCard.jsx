@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./ItemCard.module.css";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
-import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
+// import AddCircleIcon from "@mui/icons-material/AddCircle";
+// import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import handleCart from "../Util/HandleCart";
 
 function ItemCard({
