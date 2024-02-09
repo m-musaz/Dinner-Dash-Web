@@ -1,7 +1,7 @@
 import express from "express";
 import router from "./routes/index.js";
 import mongoose from "mongoose";
-// import { init_db } from "./databases/mongo_init.js";
+// import { init_db } from "./databases/mongo_init.js"; // To Initialize the DB
 import cors from "cors";
 const port = 3000;
 const app = express();
@@ -26,4 +26,4 @@ mongoose
     console.log("Connection Failed", err);
   });
 
-// init_db();
+// init_db(); // To Initialize the DB

@@ -38,3 +38,8 @@
   color: white !important;
   font-style: italic !important;
 }
+
+.foodimage {
+  max-height: 270px !important;
+  object-fit: cover !important;
+}

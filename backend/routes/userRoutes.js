@@ -20,11 +20,11 @@ userRouter.post("/save-order", async (req, res, next) => {
     });
 
     const user = await usersModel.findById(user_id);
-    user.orders.push(db_order._id);
+    user?.orders.push(db_order?._id);
 
     try {
-      await db_order.save();
-      await user.save();
+      await db_order?.save();
+      await user?.save();
       res.status(201).send("Order Saved");
     } catch (err) {
       console.log(err);
@@ -39,7 +39,7 @@ userRouter.get("/get-orders", async (req, res, next) => {
     .findById(user_id)
     .select({ _id: 0, orders: 1 });
 
-  const stringifiedOrders = orderIds.orders.map((item) => item.toString());
+  const stringifiedOrders = orderIds?.orders.map((item) => item.toString());
 
   const orders = await ordersModel
     .find({

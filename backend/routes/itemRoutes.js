@@ -5,8 +5,6 @@ import itemModel from "../models/Items.js";
 const mongo = mongoose;
 const itemsRouter = express.Router();
 
-
-
 itemsRouter.get("/get-all", (req, res) => {
   itemModel
     .find({})

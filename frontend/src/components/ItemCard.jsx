@@ -24,7 +24,7 @@ function ItemCard({
         <div class="single-product-item">
           <div class="product-image">
             <a href="single-product.html">
-              <img src="./src/assets/img/products/product-img-1.jpg" alt="" />
+              <img className={styles.foodimage} src={imgUrl} alt="" />
             </a>
           </div>
           <h3>{title}</h3>

@@ -34,11 +34,11 @@ function TableRow({
       <td>{price}</td>
       <td className="d-flex justify-content-center">
         <div className="align-self-center" onClick={handleClickMinus}>
-          {/* <RemoveCircleIcon /> */}
+          {/* <RemoveCircleIcon /> */}-
         </div>
         <h5 className={`mx-3`}>{quantity}</h5>
         <div className="align-self-center" onClick={handleClickAdd}>
-          {/* <AddCircleIcon /> */}
+          {/* <AddCircleIcon /> */}+
         </div>
       </td>
       <td>{subTotal}</td>
