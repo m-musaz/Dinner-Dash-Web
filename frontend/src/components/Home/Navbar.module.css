@@ -12,3 +12,6 @@
   color: #1e1e1e !important;
   border-radius: 15px !important;
 }
+.bgscroll {
+  background-color: #1e1e1e !important; /* Change background color when scrolling */
+}

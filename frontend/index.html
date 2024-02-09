@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="./src/assets/css/responsive.css" />
   </head>
 
-  <body style="background-color: #1e1e1e">
+  <body style="background-color: #ffffff">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
     <!-- jquery -->
@@ -66,5 +66,23 @@
     <script src="assets/js/sticker.js"></script>
     <!-- main js -->
     <script src="assets/js/main.js"></script>
+    <script>
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        var navbar = document.querySelector(".navClass");
+        if (
+          document.body.scrollTop > 50 ||
+          document.documentElement.scrollTop > 50
+        ) {
+          navbar.classList.add("bg-dark");
+        } else {
+          navbar.classList.remove("bg-dark");
+        }
+      }
+    </script>
   </body>
+  <!-- Hero Image by <a href="https://www.freepik.com/free-photo/tasty-pizza-near-ingredients_1994144.htm#page=2&query=food%20background&position=10&from_view=search&track=ais&uuid=07a32a7d-3ea2-497e-968f-93dbf061634d">Freepik</a> -->
 </html>
