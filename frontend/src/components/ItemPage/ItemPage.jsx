@@ -47,7 +47,7 @@ function ItemPage() {
 
   const fetchItem = async () => {
     try {
-      const res = await axios.get(`https://dinner-dash-web-backend.vercel.app//items/get-by-id`, {
+      const res = await axios.get(`https://dinner-dash-web-backend.vercel.app/items/get-by-id`, {
         params: { id: ItemID },
       });
       setItem(res?.data.data);

@@ -36,7 +36,7 @@ function Checkout() {
     } else {
       try {
         const res = await axios.post(
-          `https://dinner-dash-web-backend.vercel.app//user/save-order`,
+          `https://dinner-dash-web-backend.vercel.app/user/save-order`,
           {
             order: orders,
           },
