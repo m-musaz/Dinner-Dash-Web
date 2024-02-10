@@ -5,7 +5,7 @@ import Checkout from "./components/Checkout/Checkout";
 import Auth from "./components/Auth/Auth";
 import History from "./components/History/History";
 import CategoryItems from "./components/CategoryItems/CategoryItems";
-import ItemPage from "./components/ItemPage/itemPage";
+import ItemPage from "./components/ItemPage/ItemPage";
 import Footer from "./components/Home/Footer";
 import ContactPage from "./components/ContactUs/ContactPage";
 
