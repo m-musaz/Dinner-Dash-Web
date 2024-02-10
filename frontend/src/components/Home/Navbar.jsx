@@ -30,82 +30,112 @@ function Navbar({ cart, user, setUser }) {
 
   return (
     <>
-      {/* <div className="row">
-        <div className="col-12">
-          <nav className={`navbar navbar-light px-2 ${styles.navcolor}`}>
-            <a
-              className={`navbar-brand text-white ${styles.navtext}`}
-              onClick={() => {
-                navigate("/");
-              }}
-            >
-              <img
-                src={DD}
-                width="30"
-                height="30"
-                className="d-inline-block align-top mx-2"
-                alt=""
-              />
-              Dinner Dash
-            </a>
-            <div className="px-3">
-              {Object.keys(user).length ? (
-                <>
-                  <button
-                    className={`btn btn-light mx-2 px-2 ${styles.navbtn}`}
-                    onClick={() => {
-                      navigate("/view-history");
-                    }}
-                  >
-                    Order History
-                  </button>
-                  <button
-                    className={`btn btn-light mx-2 px-2 ${styles.navbtn}`}
-                    onClick={handleLogOut}
-                  >
-                    Log Out
-                  </button>
-                </>
-              ) : (
-                <>
-                  <button
-                    className={`btn btn-light mx-2 px-2 ${styles.navbtn}`}
-                    onClick={() => {
-                      navigate("/auth");
-                    }}
-                  >
-                    Login
-                  </button>
-                  <button
-                    className={`btn btn-light mx-2 px-2 ${styles.navbtn}`}
-                    onClick={() => {
-                      navigate("/auth?signup=true");
-                    }}
-                  >
-                    Sign Up
-                  </button>
-                </>
-              )}
-
-              {/* <Badge badgeContent={cartSize} className="text-black" color="error"> */}
-      {/* <div
-                className="text-white"
-                onClick={() => {
-                  navigate("/view-cart");
-                }}
-              >
-                View Cart */}
-      {/* <ShoppingCartIcon className="text-white" fontSize="large" /> */}
-      {/* </div> */}
-      {/* </Badge> */}
-      {/* //   </div> */}
-      {/* // </nav>
-        // </div> */}
-      {/* // </div> */}
       <div id="sticker" className={`navClass row px-3  fixed-top`}>
         <div className={`col-lg-12 col-sm-12 text-center`}>
           <div class="main-menu-wrap d-flex align-items-center justify-content-between">
-            <div class="site-logo">
+            {/* Mobile Navbar */}
+            <div className="dropdown d-flex justify-content-center d-lg-none d-md-flex">
+              <button
+                className="navbar-toggler btn-outline color-white d-lg-none d-md-flex pt-3 pb-3 justify-content-center"
+                style={{ color: "white", fontSize: "xxx-large" }}
+                type="button"
+                id="dropdownMenuButton"
+                data-bs-toggle="dropdown" // Use data-bs-toggle for Bootstrap 5
+                aria-expanded="false"
+              >
+                <i className="fas fa-bars color-white"></i>
+              </button>
+              <ul
+                className="dropdown-menu bg-dark mb-2 border border-white px-3 text-center"
+                aria-labelledby="dropdownMenuButton"
+              >
+                <li>
+                  <div class="py-3 pb-5">
+                    <a href="index.html">
+                      <img
+                        src="./src/assets/img/Group 1.png"
+                        alt=""
+                        style={{ maxHeight: "55px" }}
+                        onClick={() => {
+                          navigate("/");
+                        }}
+                      />
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    className="text-white py-3"
+                    onClick={() => {
+                      navigate("/view-cart");
+                    }}
+                  >
+                    <a class="shopping-cart position-relative">
+                      <i
+                        class="fas fa-shopping-cart"
+                        style={{ fontSize: "large" }}
+                      >
+                        <span
+                          class="badge badge-light text-black position-absolute top-2 end-2 mb-3 me-0"
+                          style={{
+                            top: "-10px",
+                            fontSize: "x-small",
+                            fontWeight: "bold",
+                          }}
+                        >
+                          {cartSize}
+                        </span>
+                      </i>
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  {Object.keys(user).length ? (
+                    <>
+                      <button
+                        className={`btn text-white btn-outline-light mx-2 px-2 my-2 ${styles.navbtn}`}
+                        onClick={() => {
+                          navigate("/view-history");
+                        }}
+                      >
+                        Order History
+                      </button>
+                      <button
+                        className={`btn text-white btn-outline-light mx-2 px-2 my-2 ${styles.navbtn}`}
+                        onClick={handleLogOut}
+                      >
+                        Log Out
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <button
+                        className={`btn text-white btn-outline-light mx-2 px-2 my-2 ${styles.navbtn}`}
+                        onClick={() => {
+                          navigate("/auth");
+                        }}
+                      >
+                        Login
+                      </button>
+                      <button
+                        className={`btn text-white btn-outline-light mx-2 px-2 my-2 ${styles.navbtn}`}
+                        onClick={() => {
+                          navigate("/auth?signup=true");
+                        }}
+                      >
+                        Sign Up
+                      </button>
+                    </>
+                  )}
+                </li>
+              </ul>
+            </div>
+            {/* Mobile Navbar End*/}
+
+            {/* --------------------------------------------------------------------------------------------------*/}
+
+            {/* Desktop Navbar */}
+            <div class="site-logo d-lg-flex d-sm-none d-none">
               <a href="index.html">
                 <img
                   src="./src/assets/img/Group 1.png"
@@ -117,141 +147,23 @@ function Navbar({ cart, user, setUser }) {
                 />
               </a>
             </div>
-
-            <nav class="main-menu ">
-              <ul className="text-decoration-none">
-                <li class="current-list-item">
-                  <a href="#" className="text-decoration-none">
-                    Home
-                  </a>
-                  <ul class="sub-menu">
-                    <li>
-                      <a href="index.html" className="text-decoration-none">
-                        Static Home
-                      </a>
-                    </li>
-                    <li>
-                      <a href="index_2.html" className="text-decoration-none">
-                        Slider Home
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="about.html" className="text-decoration-none">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-decoration-none">
-                    Pages
-                  </a>
-                  <ul class="sub-menu">
-                    <li>
-                      <a href="404.html" className="text-decoration-none">
-                        404 page
-                      </a>
-                    </li>
-                    <li>
-                      <a href="about.html" className="text-decoration-none">
-                        About
-                      </a>
-                    </li>
-                    <li>
-                      <a href="cart.html" className="text-decoration-none">
-                        Cart
-                      </a>
-                    </li>
-                    <li>
-                      <a href="checkout.html" className="text-decoration-none">
-                        Check Out
-                      </a>
-                    </li>
-                    <li>
-                      <a href="contact.html" className="text-decoration-none">
-                        Contact
-                      </a>
-                    </li>
-                    <li>
-                      <a href="news.html" className="text-decoration-none">
-                        News
-                      </a>
-                    </li>
-                    <li>
-                      <a href="shop.html" className="text-decoration-none">
-                        Shop
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="news.html" className="text-decoration-none">
-                    {" "}
-                    News
-                  </a>
-                  <ul class="sub-menu">
-                    <li>
-                      <a href="news.html" className="text-decoration-none">
-                        News
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="single-news.html"
-                        className="text-decoration-none"
-                      >
-                        Single News
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="contact.html" className="text-decoration-none">
-                    Contact
-                  </a>
-                </li>
-                <li>
-                  <a href="shop.html" className="text-decoration-none">
-                    Shop
-                  </a>
-                  <ul class="sub-menu">
-                    <li>
-                      <a href="shop.html" className="text-decoration-none">
-                        Shop
-                      </a>
-                    </li>
-                    <li>
-                      <a href="checkout.html" className="text-decoration-none">
-                        Check Out
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="single-product.html"
-                        className="text-decoration-none"
-                      >
-                        Single Product
-                      </a>
-                    </li>
-                    <li>
-                      <a href="cart.html" className="text-decoration-none">
-                        Cart
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </nav>
-            <div class="header-icons d-flex">
+            <div class="header-icons d-lg-flex d-sm-none d-none ">
               <div
                 className="text-white"
                 onClick={() => {
                   navigate("/view-cart");
                 }}
               >
-                <a class="shopping-cart">
-                  <i class="fas fa-shopping-cart">
-                    <span class="badge badge-light text-black ">
+                <a class="shopping-cart position-relative">
+                  <i class="fas fa-shopping-cart mx-5" style={{ fontSize: "x-large" }}>
+                    <span
+                      class="badge badge-light text-black position-absolute top-2 end-2 mb-3 me-0 "
+                      style={{
+                        top: "0px",
+                        fontSize: "small",
+                        fontWeight: "bolder",
+                      }}
+                    >
                       {cartSize}
                     </span>
                   </i>
@@ -295,6 +207,7 @@ function Navbar({ cart, user, setUser }) {
                 </>
               )}
             </div>
+            {/* Desktop Navbar */}
           </div>
         </div>
       </div>
