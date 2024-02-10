@@ -14,7 +14,7 @@ function LoginForm({ statefun }) {
     console.log("login");
     try {
       const res = await axios.post(
-        `https://dinner-dash-web-backend.vercel.app/login`,
+        `https://good-blue-dog-ring.cyclic.app/login`,
         {
           email: values.email,
           password: values.password,

@@ -12,7 +12,7 @@ function SignupForm({ statefun }) {
   const handleSubmit = async (values) => {
     try {
       const res = await axios.post(
-        `https://dinner-dash-web-backend.vercel.app/signup`,
+        `https://good-blue-dog-ring.cyclic.app/signup`,
         {
           fullName: values.name,
           email: values.email,
