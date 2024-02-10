@@ -3,13 +3,13 @@ import router from "./routes/index.js";
 import mongoose from "mongoose";
 // import { init_db } from "./databases/mongo_init.js"; // To Initialize the DB
 import cors from "cors";
-const port = 3000;
+const port = 3001;
 const app = express();
 
 app.use(
   cors({
-    origin: ["*", "https://dinner-dash-web.vercel.app"],
-    methods: ["GET", "POST"],
+    origin: ["https://dinner-dash-web.vercel.app"],
+    methods: ["POST", "GET"],
     credentials: true,
   })
 );
