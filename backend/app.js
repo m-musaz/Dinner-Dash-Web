@@ -6,16 +6,20 @@ import cors from "cors";
 const port = 3000;
 const app = express();
 
-app.use(express.json());
 app.use(
   cors({
-    origin: ["*"],
+    origin: ["*", "https://dinner-dash-web.vercel.app"],
     methods: ["GET", "POST"],
     credentials: true,
   })
 );
+app.use(express.json());
 
 app.use("/", router);
+
+app.get("/", (req, res) => {
+  res.json("Hello");
+});
 
 app.listen(port, () => {
   console.log("Serving running on port", port);
