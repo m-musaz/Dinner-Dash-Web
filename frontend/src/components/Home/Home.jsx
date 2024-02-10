@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import axios from "axios";
 import ItemCard from "../ItemCard";
 import { useNavigate } from "react-router";
+import Footer from "./Footer";
 
 const Home = () => {
   const [categories, setCategories] = useState([]);
@@ -122,8 +123,10 @@ const Home = () => {
                         <h1>Elevate your Dining Experience</h1>
                         <div class="hero-btns">
                           <a
-                            href="shop.html"
                             class="boxed-btn text-decoration-none"
+                            onClick={() => {
+                              navigate(`/categories?id=${categories[0]?._id}`);
+                            }}
                           >
                             Explore Menu
                           </a>
@@ -175,6 +178,7 @@ const Home = () => {
               </div>
             </div>
             {/* USP End */}
+
             {/* Product Section */}
             <div class="product-section mt-150 mb-150">
               <div class="container">
@@ -211,33 +215,6 @@ const Home = () => {
             </div>
             {/* Product Section End*/}
 
-            {/* Explore All Categories Section */}
-            <div className={`row bg-dark text-white`}>
-              <div className="col-12 my-5">
-                <div class="row">
-                  <div class="col-lg-8 offset-lg-2 text-center">
-                    <div class="section-title">
-                      <h3 className="font-weight-bold">
-                        <span class="orange-text">Browse</span> Categories
-                      </h3>
-                    </div>
-                    {categories?.map((category) => (
-                      <button
-                        className={`btn px-3 mx-4 rounded-pill ${styles.categorybtn}`}
-                        key={category._id}
-                        onClick={() => {
-                          navigate(`/categories?id=${category._id}`);
-                        }}
-                      >
-                        {category.name}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* Explore All Categories Section End */}
-
             {/* Discount Section */}
             <section class="shop-banner">
               <div class="container">
@@ -253,14 +230,57 @@ const Home = () => {
                   50% <span>off</span>
                 </div>
                 <a
-                  href="shop.html"
                   class="cart-btn btn-lg text-decoration-none"
+                  onClick={() => {
+                    navigate(`/categories?id=${categories[0]?._id}`);
+                  }}
                 >
                   Shop Now
                 </a>
               </div>
             </section>
             {/* Discount Section */}
+
+            {/* Who we are section */}
+            <div class="abt-section mt-5 pt-5">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-6 col-md-12 bg-dark d-flex justify-content-center align-items-center">
+                    <div class="bg-dark">
+                      <img src="./src/assets/img/Group 1.png"></img>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-12 px-5">
+                    <div class="text-left">
+                      <p class="font-weight-light">Since 2002</p>
+                      <h1 className="font-weight-bold ">
+                        We are <span class="orange-text">Dinner Dash</span>
+                      </h1>
+                      <p>
+                        Since its inception in 2002, Dinner Dash has remained a
+                        driving force in the food ecommerce industry, offering a
+                        diverse range of gourmet delicacies and everyday
+                        necessities. With an unwavering commitment to
+                        convenience and quality, we have cultivated a reputation
+                        for excellence, catering to the discerning tastes of
+                        customers worldwide.Our dedication to innovation ensures
+                        that we continue to evolve, providing unparalleled
+                        service and culinary inspiration to all who seek it.
+                      </p>
+                      <p>
+                        Join us as we continue to redefine the boundaries of
+                        food ecommerce, serving up delightful moments and
+                        unforgettable meals for years to come.
+                      </p>
+                      <a class="boxed-btn mt-4 text-decoration-none">
+                        know more
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Who we are section */}
 
             {/* Testimonials  */}
             <div class="testimonail-section mt-150 mb-150">
@@ -409,77 +429,6 @@ const Home = () => {
               </div>
             </div>
             {/* Testimonials End */}
-
-            <div class="footer-area">
-              <div class="container">
-                <div class="row">
-                  <div class="col-lg-3 col-md-6">
-                    <div class="footer-box about-widget">
-                      <h2 class="widget-title">About us</h2>
-                      <p>
-                        Indulge in a Culinary Adventure with Dinner Dash © 2024.
-                        Discover our exquisite menu crafted with passion and
-                        care. Join us in savoring the flavors that bring people
-                        together. Bon appétit!"
-                      </p>
-                    </div>
-                  </div>
-                  <div class="col-lg-3 col-md-6">
-                    <div class="footer-box get-in-touch footer-box pages">
-                      <h2 class="widget-title">Get in Touch</h2>
-                      <ul>
-                        <li>
-                          <a href="https://www.linkedin.com/in/muhammad-musa-zulfiqar">
-                            LinkedIn
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://www.upwork.com/freelancers/musazulfqar">
-                            Upwork
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="col-lg-3 col-md-6">
-                    <div class="footer-box pages">
-                      <h2 class="widget-title">Pages</h2>
-                      <ul>
-                        <li>
-                          <a href="index.html">Home</a>
-                        </li>
-                        <li>
-                          <a href="about.html">About</a>
-                        </li>
-                        <li>
-                          <a href="services.html">Shop</a>
-                        </li>
-                        <li>
-                          <a href="news.html">News</a>
-                        </li>
-                        <li>
-                          <a href="contact.html">Contact</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="col-lg-3 col-md-6">
-                    <div class="footer-box subscribe">
-                      <h2 class="widget-title">Subscribe</h2>
-                      <p>
-                        Subscribe to our mailing list to get the latest updates.
-                      </p>
-                      <form action="index.html">
-                        <input type="email" placeholder="Email" />
-                        <button type="submit">
-                          <i class="fas fa-paper-plane"></i>
-                        </button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

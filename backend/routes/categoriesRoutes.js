@@ -18,4 +18,16 @@ categoriesRouter.get("/get-all", (req, res) => {
     });
 });
 
+categoriesRouter.get("/get-by-id", (req, res) => {
+  const id = req.query.id;
+  categoriesModel
+    .find({ _id: { $all: id } })
+    .then((result) => {
+      res.status(201).json({ status: "success", data: result });
+    })
+    .catch((err) => {
+      res.status(404);
+    });
+});
+
 export default categoriesRouter;

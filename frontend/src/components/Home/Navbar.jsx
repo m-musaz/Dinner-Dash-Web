@@ -260,7 +260,7 @@ function Navbar({ cart, user, setUser }) {
               {Object.keys(user).length ? (
                 <>
                   <button
-                    className={`btn btn-light mx-2 px-2 ${styles.navbtn}`}
+                    className={`btn text-white btn-outline-light mx-2 px-2 ${styles.navbtn}`}
                     onClick={() => {
                       navigate("/view-history");
                     }}
@@ -268,7 +268,7 @@ function Navbar({ cart, user, setUser }) {
                     Order History
                   </button>
                   <button
-                    className={`btn btn-light mx-2 px-2 ${styles.navbtn}`}
+                    className={`btn text-white btn-outline-light mx-2 px-2 ${styles.navbtn}`}
                     onClick={handleLogOut}
                   >
                     Log Out
@@ -277,7 +277,7 @@ function Navbar({ cart, user, setUser }) {
               ) : (
                 <>
                   <button
-                    className={`btn btn-light mx-2 px-2 ${styles.navbtn}`}
+                    className={`btn text-white btn-outline-light mx-2 px-2 ${styles.navbtn}`}
                     onClick={() => {
                       navigate("/auth");
                     }}
@@ -285,7 +285,7 @@ function Navbar({ cart, user, setUser }) {
                     Login
                   </button>
                   <button
-                    className={`btn btn-light mx-2 px-2 ${styles.navbtn}`}
+                    className={`btn text-white btn-outline-light mx-2 px-2 ${styles.navbtn}`}
                     onClick={() => {
                       navigate("/auth?signup=true");
                     }}

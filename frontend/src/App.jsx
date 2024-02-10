@@ -5,18 +5,24 @@ import Checkout from "./components/Checkout/Checkout";
 import Auth from "./components/Auth/Auth";
 import History from "./components/History/History";
 import CategoryItems from "./components/CategoryItems/CategoryItems";
+import ItemPage from "./components/ItemPage/itemPage";
+import Footer from "./components/Home/Footer";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="*" element={<Home />}></Route>
-        <Route path="/view-cart" element={<Checkout />}></Route>
-        <Route path="/auth" element={<Auth />}></Route>
-        <Route path="/view-history" element={<History />}></Route>
-        <Route path="/categories" element={<CategoryItems />}></Route>
-      </Routes>
-    </Router>
+    <>
+      <Router>
+        <Routes>
+          <Route path="*" element={<Home />}></Route>
+          <Route path="/view-cart" element={<Checkout />}></Route>
+          <Route path="/auth" element={<Auth />}></Route>
+          <Route path="/view-history" element={<History />}></Route>
+          <Route path="/categories" element={<CategoryItems />}></Route>
+          <Route path="/item" element={<ItemPage />}></Route>
+        </Routes>
+      </Router>
+      <Footer></Footer>
+    </>
   );
 }
 

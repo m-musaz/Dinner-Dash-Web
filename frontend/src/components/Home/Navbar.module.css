@@ -9,9 +9,8 @@
 .navbtn {
   font-weight: 500 !important;
   font-size: larger !important;
-  color: #1e1e1e !important;
-  border-radius: 15px !important;
+  border-radius: 5px !important;
 }
-.bgscroll {
-  background-color: #1e1e1e !important; /* Change background color when scrolling */
+.navbtn:hover {
+  color: black !important;
 }
