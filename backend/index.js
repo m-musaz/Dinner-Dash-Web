@@ -1,5 +1,5 @@
 import express from "express";
-import router from "./api/index.js";
+import router from "./routes/index.js";
 import mongoose from "mongoose";
 // import { init_db } from "./databases/mongo_init.js"; // To Initialize the DB
 import cors from "cors";
