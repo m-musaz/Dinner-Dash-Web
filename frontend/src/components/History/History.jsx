@@ -53,6 +53,23 @@ function History() {
         <div className="row ">
           <div className={`col-12`}>
             <Navbar cart={cart} user={user} setUser={setUser} />
+            <div
+              class="hero-area hero-bg"
+              style={{ height: "300px", textAlign: "center" }}
+            >
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-9 text-center m-auto">
+                    <div class="hero-text">
+                      <div class="hero-text-tablecell">
+                        <p class="subtitle">Thank You</p>
+                        <h1>Your Order History</h1>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className={`row py-3`}>
               <div className="col-12 my-5 text-white">
                 <h1 className="mb-5">Your Order History</h1>
