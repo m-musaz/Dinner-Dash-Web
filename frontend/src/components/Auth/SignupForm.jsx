@@ -11,11 +11,14 @@ function SignupForm({ statefun }) {
   const [name, setName] = useState("");
   const handleSubmit = async (values) => {
     try {
-      const res = await axios.post(`http://localhost:3000/signup`, {
-        fullName: values.name,
-        email: values.email,
-        password: values.password,
-      });
+      const res = await axios.post(
+        `https://dinner-dash-web-backend.vercel.app//signup`,
+        {
+          fullName: values.name,
+          email: values.email,
+          password: values.password,
+        }
+      );
       if (res) {
         console.log(res);
         statefun(false);

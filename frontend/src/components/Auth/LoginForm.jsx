@@ -13,10 +13,13 @@ function LoginForm({ statefun }) {
   const handleSubmit = async (values) => {
     console.log("login");
     try {
-      const res = await axios.post(`http://localhost:3000/login`, {
-        email: values.email,
-        password: values.password,
-      });
+      const res = await axios.post(
+        `https://dinner-dash-web-backend.vercel.app//login`,
+        {
+          email: values.email,
+          password: values.password,
+        }
+      );
       if (res) {
         localStorage.setItem(
           "user",

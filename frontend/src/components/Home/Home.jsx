@@ -19,7 +19,9 @@ const Home = () => {
   const navigate = useNavigate();
   async function fetchCategories() {
     try {
-      const res = await axios.get(`http://localhost:3000/categories/get-all`);
+      const res = await axios.get(
+        `https://dinner-dash-web-backend.vercel.app//categories/get-all`
+      );
       setCategories(res?.data.data);
     } catch (err) {
       console.log(err);
@@ -28,7 +30,7 @@ const Home = () => {
   async function fetchItems() {
     try {
       const res = await axios.get(
-        `http://localhost:3000/items/category-items`,
+        `https://dinner-dash-web-backend.vercel.app//items/category-items`,
         { params: { catIDs: "65c6b22aa0c2d611445480d6" } }
       );
       setItems(res?.data.data);

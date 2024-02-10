@@ -47,9 +47,12 @@ function ContactPage() {
 
   const fetchItem = async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/items/get-by-id`, {
-        params: { id: ItemID },
-      });
+      const res = await axios.get(
+        `https://dinner-dash-web-backend.vercel.app//items/get-by-id`,
+        {
+          params: { id: ItemID },
+        }
+      );
       setItem(res?.data.data);
     } catch (err) {
       console.log(err);

@@ -31,9 +31,12 @@ function History() {
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/user/get-orders`, {
-        headers: { secret_token: user?.token },
-      });
+      const res = await axios.get(
+        `https://dinner-dash-web-backend.vercel.app//user/get-orders`,
+        {
+          headers: { secret_token: user?.token },
+        }
+      );
       console.log(res?.data?.orders);
       setOrders(res?.data?.orders);
     } catch (err) {
