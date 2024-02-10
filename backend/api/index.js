@@ -37,3 +37,5 @@ mongoose
   });
 
 // init_db(); // To Initialize the DB
+
+module.exports = app;
