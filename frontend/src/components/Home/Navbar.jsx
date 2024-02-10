@@ -53,7 +53,7 @@ function Navbar({ cart, user, setUser }) {
                   <div class="py-3 pb-5">
                     <a>
                       <img
-                        src="./src/assets/img/Group 1.png"
+                        src="../assets/img/Group 1.png"
                         alt=""
                         style={{ maxHeight: "55px" }}
                         onClick={() => {
@@ -138,7 +138,7 @@ function Navbar({ cart, user, setUser }) {
             <div class="site-logo d-lg-flex d-sm-none d-none">
               <a>
                 <img
-                  src="./src/assets/img/Group 1.png"
+                  src="../assets/img/Group 1.png"
                   alt=""
                   style={{ maxHeight: "55px" }}
                   onClick={() => {

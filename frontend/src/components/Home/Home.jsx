@@ -249,7 +249,7 @@ const Home = () => {
                 <div class="row">
                   <div class="col-lg-6 col-md-12 bg-dark d-flex justify-content-center align-items-center">
                     <div class="bg-dark">
-                      <img src="./src/assets/img/Group 1.png"></img>
+                      <img src="../assets/img/Group 1.png"></img>
                     </div>
                   </div>
                   <div class="col-lg-6 col-md-12 px-5">
@@ -303,7 +303,7 @@ const Home = () => {
                             <div>
                               <div class="client-avater">
                                 <img
-                                  src="./src/assets/img/avaters/avatar1.png"
+                                  src="../assets/img/avaters/avatar1.png"
                                   alt=""
                                 />
                               </div>
@@ -323,7 +323,7 @@ const Home = () => {
                             <div>
                               <div class="client-avater">
                                 <img
-                                  src="./src/assets/img/avaters/avatar2.png"
+                                  src="../assets/img/avaters/avatar2.png"
                                   alt=""
                                 />
                               </div>
@@ -343,7 +343,7 @@ const Home = () => {
                             <div>
                               <div class="client-avater">
                                 <img
-                                  src="./src/assets/img/avaters/avatar3.png"
+                                  src="../assets/img/avaters/avatar3.png"
                                   alt=""
                                 />
                               </div>
@@ -364,7 +364,7 @@ const Home = () => {
                             <div>
                               <div class="client-avater">
                                 <img
-                                  src="./src/assets/img/avaters/avatar1.png"
+                                  src="../assets/img/avaters/avatar1.png"
                                   alt=""
                                 />
                               </div>
@@ -385,7 +385,7 @@ const Home = () => {
                             <div>
                               <div class="client-avater">
                                 <img
-                                  src="./src/assets/img/avaters/avatar2.png"
+                                  src="../assets/img/avaters/avatar2.png"
                                   alt=""
                                 />
                               </div>
@@ -406,7 +406,7 @@ const Home = () => {
                             <div>
                               <div class="client-avater">
                                 <img
-                                  src="./src/assets/img/avaters/avatar3.png"
+                                  src="../assets/img/avaters/avatar3.png"
                                   alt=""
                                 />
                               </div>
