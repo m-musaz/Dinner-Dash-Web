@@ -1,0 +1,11 @@
+.categoriesbg {
+  background-color: #1e1e1e;
+  color: #f15a24;
+}
+.categorybtn {
+  font-weight: 800 !important;
+  font-size: x-large !important;
+  background-color: #f15a24 !important;
+  font-style: italic !important;
+  color: white !important;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="./src/assets/DD_logo_2.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//fonts.googleapis.com/css?family=Bowlby+One"
+    />
+    <title>Dinner Dash</title>
+
+    <!-- favicon -->
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="./src/assets/DD_logo_2.png"
+    />
+    <!-- google font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="./src/assets/css/all.min.css" />
+    <!-- bootstrap -->
+    <link
+      rel="stylesheet"
+      href="./src/assets/bootstrap/css/bootstrap.min.css"
+    />
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="./src/assets/css/owl.carousel.css" />
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="./src/assets/css/magnific-popup.css" />
+    <!-- animate css -->
+    <link rel="stylesheet" href="./src/assets/css/animate.css" />
+    <!-- mean menu css -->
+    <link rel="stylesheet" href="./src/assets/css/meanmenu.min.css" />
+    <!-- main style -->
+    <link rel="stylesheet" href="./src/assets/css/main.css" />
+    <!-- responsive -->
+    <link rel="stylesheet" href="./src/assets/css/responsive.css" />
+  </head>
+
+  <body style="background-color: #ffffff">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <!-- jquery -->
+    <script src="./src/assets/js/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap -->
+    <script src="./src/assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- count down -->
+    <script src="./src/assets/js/jquery.countdown.js"></script>
+    <!-- isotope -->
+    <script src="./src/assets/js/jquery.isotope-3.0.6.min.js"></script>
+    <!-- waypoints -->
+    <script src="./src/assets/js/waypoints.js"></script>
+    <!-- owl carousel -->
+    <script src="./src/assets/js/owl.carousel.min.js"></script>
+    <!-- magnific popup -->
+    <script src="./src/assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- mean menu -->
+    <script src="./src/assets/js/jquery.meanmenu.min.js"></script>
+    <!-- sticker js -->
+    <script src="./src/assets/js/sticker.js"></script>
+    <!-- main js -->
+    <script src="./src/assets/js/main.js"></script>
+    <script>
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        var navbar = document.querySelector(".navClass");
+        if (
+          document.body.scrollTop > 50 ||
+          document.documentElement.scrollTop > 50
+        ) {
+          navbar.classList.add("bg-dark");
+        } else {
+          navbar.classList.remove("bg-dark");
+        }
+      }
+    </script>
+  </body>
+  <!-- Hero Image by <a href="https://www.freepik.com/free-photo/tasty-pizza-near-ingredients_1994144.htm#page=2&query=food%20background&position=10&from_view=search&track=ais&uuid=07a32a7d-3ea2-497e-968f-93dbf061634d">Freepik</a> -->
+</html>
