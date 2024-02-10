@@ -7,9 +7,11 @@ const handleCart = (
   quantity,
   title,
   price,
+  imgUrl,
   checkOut,
   Clear
 ) => {
+  console.log("url=", imgUrl);
   if (Clear) {
     setCart([]);
     localStorage.setItem("cart", JSON.stringify([]));
@@ -23,6 +25,7 @@ const handleCart = (
         title: title,
         price: price,
         subTotal: quantity * price,
+        imgUrl: imgUrl,
       },
     ]);
   } else {
@@ -51,6 +54,7 @@ const handleCart = (
             price: price,
             quantity: newQautity,
             subTotal: newQautity * price,
+            imgUrl: item.imgUrl,
           };
         }
         return item;
@@ -65,6 +69,7 @@ const handleCart = (
           title: title,
           price: price,
           subTotal: quantity * price,
+          imgUrl: imgUrl,
         },
       ]);
     }

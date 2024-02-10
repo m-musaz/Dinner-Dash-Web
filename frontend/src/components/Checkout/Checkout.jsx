@@ -42,7 +42,7 @@ function Checkout() {
           },
           { headers: { secret_token: user.token } }
         );
-        handleCart(cart, setCart, "1", 1, 1, 1, false, true);
+        handleCart(cart, setCart, "1", 1, 1, 1, " ", false, true);
         alert("You Order is Placed");
         navigate("/");
       } catch (err) {
@@ -63,58 +63,123 @@ function Checkout() {
   }, [cart]);
   return (
     <>
-      <div
-        className={`container-fluid p-0 overflow-hidden ${styles.outercontainer}`}
-      >
+      <div className={`container-fluid p-0 overflow-hidden`}>
         <div className="row ">
           <div className={`col-12`}>
             <Navbar cart={cart} user={user} setUser={setUser} />
-            <div className={`row py-3 ${styles.categoriesbg}`}>
-              <div className="col-12 my-5">
-                {Object.keys(user).length ? (
-                  <>
-                    <h1>{user.user.fullName}'s</h1>
-                    <h1 className="pb-5">Cart</h1>
-                  </>
-                ) : (
-                  <h1 className="pb-5">Your Cart</h1>
-                )}
-                <table className="table">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Item Name</th>
-                      <th scope="col">Price</th>
-                      <th scope="col">Qauntity</th>
-                      <th scope="col">Sub Total</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {cart?.map((item, index) => (
-                      <TableRow
-                        key={item.itemId}
-                        index={index}
-                        title={item.title}
-                        itemId={item.itemId}
-                        price={item.price}
-                        quantity={item.quantity}
-                        subTotal={item.subTotal}
-                        cart={cart}
-                        setCart={setCart}
-                      />
-                    ))}
-                  </tbody>
-                </table>
+            <div
+              class="hero-area hero-bg"
+              style={{ height: "300px", textAlign: "center" }}
+            >
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-9 text-center m-auto">
+                    <div class="hero-text">
+                      <div class="hero-text-tablecell">
+                        <p class="subtitle">Shopping Cart</p>
+                        <h1>Check Out</h1>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h1 className="">Total: {total} PKR</h1>
-              {Object.keys(user).length ? (
-                <button
-                  className={`mb-4 py-2 rounded-pill ${styles.checkoutbtn}`}
-                  onClick={handleCheckout}
-                >
-                  CheckOut
-                </button>
-              ) : undefined}
+            </div>
+
+            <div class="cart-section mt-150 mb-150">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-8 col-md-12">
+                    <div class="cart-table-wrap">
+                      <table class="cart-table">
+                        <thead class="cart-table-head">
+                          <tr class="table-head-row">
+                            <th class="product-remove"></th>
+                            <th class="product-image">Product Image</th>
+                            <th class="product-name">Name</th>
+                            <th class="product-price">Price</th>
+                            <th class="product-quantity">Quantity</th>
+                            <th class="product-total">Total</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {cart?.map((item, index) => (
+                            <TableRow
+                              key={item.itemId}
+                              index={index}
+                              title={item.title}
+                              itemId={item.itemId}
+                              price={item.price}
+                              quantity={item.quantity}
+                              subTotal={item.subTotal}
+                              imgUrl={item.imgUrl}
+                              cart={cart}
+                              setCart={setCart}
+                            />
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-4">
+                    <div class="total-section">
+                      <table class="total-table">
+                        <thead class="total-table-head">
+                          <tr class="table-total-row">
+                            <th>Total</th>
+                            <th>Price</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="total-data">
+                            <td>
+                              <strong>Subtotal: </strong>
+                            </td>
+                            <td>${total}</td>
+                          </tr>
+                          <tr class="total-data">
+                            <td>
+                              <strong>Shipping: </strong>
+                            </td>
+                            <td>$45</td>
+                          </tr>
+                          <tr class="total-data">
+                            <td>
+                              <strong>Total: </strong>
+                            </td>
+                            {Object.keys(cart).length ? (
+                              <td>${total + 45}</td>
+                            ) : (
+                              <td>$0</td>
+                            )}
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div class="cart-buttons">
+                        {Object.keys(user).length ? (
+                          <a onClick={handleCheckout} class="boxed-btn black">
+                            Check Out
+                          </a>
+                        ) : undefined}
+                      </div>
+                    </div>
+
+                    <div class="coupon-section">
+                      <h3>Apply Coupon</h3>
+                      <div class="coupon-form-wrap">
+                        <form action="index.html">
+                          <p>
+                            <input type="text" placeholder="Coupon" />
+                          </p>
+                          <p>
+                            <input type="submit" value="Apply" />
+                          </p>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

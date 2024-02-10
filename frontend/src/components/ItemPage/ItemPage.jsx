@@ -21,7 +21,8 @@ function ItemPage() {
       ItemID,
       quantity,
       item[0]?.title,
-      item[0]?.price.$numberDecimal
+      item[0]?.price.$numberDecimal,
+      item[0]?.imgUrl
     );
   };
 

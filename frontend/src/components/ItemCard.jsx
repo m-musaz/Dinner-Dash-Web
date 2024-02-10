@@ -13,7 +13,7 @@ function ItemCard({
 }) {
   const [quantity, setQuantity] = useState(1);
   const handleClick = () => {
-    handleCart(cart, setCart, itemID, quantity, title, price);
+    handleCart(cart, setCart, itemID, quantity, title, price, imgUrl);
   };
 
   return (
