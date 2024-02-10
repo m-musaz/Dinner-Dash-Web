@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import AddCircleIcon from "@mui/icons-material/AddCircle";
-// import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import handleCart from "../../Util/HandleCart";
 
 function TableRow({
@@ -27,6 +25,7 @@ function TableRow({
   useEffect(() => {
     handleCart(cart, setCart, itemId, itemQuantity, title, price, true);
   }, [itemQuantity]);
+  console.log(subTotal);
   return (
     <tr>
       <th scope="row">{index + 1}</th>

@@ -15,7 +15,14 @@ function ItemPage() {
   const [quantity, setQuantity] = useState(1);
 
   const handleClick = () => {
-    handleCart(cart, setCart, ItemID, quantity, item[0]?.title, item[0]?.price);
+    handleCart(
+      cart,
+      setCart,
+      ItemID,
+      quantity,
+      item[0]?.title,
+      item[0]?.price.$numberDecimal
+    );
   };
 
   useEffect(() => {
@@ -61,6 +68,10 @@ function ItemPage() {
       localStorage.setItem("cart", JSON.stringify(cart));
     }
   }, [cart]);
+
+  const handleQuantityChange = (event) => {
+    setQuantity(parseInt(event.target.value)); // Update the quantity state with the new value
+  };
   return (
     <div className={`container-fluid p-0 overflow-hidden`}>
       <div className="row ">
@@ -104,13 +115,15 @@ function ItemPage() {
                     <p>{item[0]?.description}</p>
                     <div class="single-product-form">
                       <form action="index.html">
-                        <input type="number" placeholder="0" />
+                        <input
+                          type="number"
+                          placeholder="0"
+                          value={quantity} // Set the value of the input to the quantity state
+                          onChange={handleQuantityChange}
+                        />
                       </form>
                       <a class="cart-btn" onClick={handleClick}>
-                        <i
-                          class="fas fa-shopping-cart text-decoration-none"
-                          onClick={handleClick}
-                        ></i>
+                        <i class="fas fa-shopping-cart text-decoration-none"></i>
                         Add to Cart
                       </a>
                       <p>
