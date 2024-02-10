@@ -73,24 +73,36 @@ function CategoryItems() {
       <div className="row ">
         <div className={`col-12`}>
           <Navbar cart={cart} user={user} setUser={setUser} />
-          <div className={`row ${styles.categoriesbg}`}>
-            <div className="col-12 my-5">
-              <h1>Change Category</h1>
-              {categories?.map((category) => (
-                <button
-                  className={`btn px-3 mx-4 mt-5 rounded-pill ${styles.categorybtn}`}
-                  key={category._id}
-                  onClick={() => {
-                    navigate(`/categories?id=${category._id}`);
-                    setCategoryID([category._id]);
-                  }}
-                >
-                  {category.name}
-                </button>
-              ))}
+          <div
+            class="hero-area hero-bg"
+            style={{ height: "500px", textAlign: "center" }}
+          >
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-9 text-center m-auto">
+                  <div class="hero-text">
+                    <div class="hero-text-tablecell">
+                      <p class="subtitle">Freshly Made</p>
+                      <h1>Explore Different Cuisines</h1>
+                      {categories?.map((category) => (
+                        <button
+                          className={`btn px-3 mx-4 mt-5 ${styles.categorybtn}`}
+                          key={category._id}
+                          onClick={() => {
+                            navigate(`/categories?id=${category._id}`);
+                            setCategoryID([category._id]);
+                          }}
+                        >
+                          {category.name}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="row">
+          <div className="row mt-5 mb-2">
             <div className="col-12 my-3">
               <div className="row justify-content-evenly">
                 {items?.map((item) => (

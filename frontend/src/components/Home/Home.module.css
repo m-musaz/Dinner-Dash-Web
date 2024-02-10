@@ -4,7 +4,7 @@
 }
 .categoriesbg {
   background-color: #1e1e1e;
-  color: #ff5733;
+  color: #f15a24;
 }
 .newitemsbg {
   background-color: #e5e2e2;
@@ -27,7 +27,7 @@
 .categorybtn {
   font-weight: 800 !important;
   font-size: larger !important;
-  background-color: #ff5733 !important;
+  background-color: #f15a24 !important;
   font-style: italic !important;
   color: white !important;
 }
