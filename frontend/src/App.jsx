@@ -7,6 +7,7 @@ import History from "./components/History/History";
 import CategoryItems from "./components/CategoryItems/CategoryItems";
 import ItemPage from "./components/ItemPage/itemPage";
 import Footer from "./components/Home/Footer";
+import ContactPage from "./components/ContactUs/ContactPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/view-history" element={<History />}></Route>
           <Route path="/categories" element={<CategoryItems />}></Route>
           <Route path="/item" element={<ItemPage />}></Route>
+          <Route path="/contact-us" element={<ContactPage />}></Route>
         </Routes>
       </Router>
       <Footer></Footer>
