@@ -1,9 +1,9 @@
 import express from "express";
-import router from "./app.js";
+import router from "./api/app.js";
 import mongoose from "mongoose";
 // import { init_db } from "./databases/mongo_init.js"; // To Initialize the DB
 import cors from "cors";
-const port = 3001;
+const port = 3000;
 const app = express();
 
 app.use(
@@ -37,5 +37,3 @@ mongoose
   });
 
 // init_db(); // To Initialize the DB
-
-module.exports = app;
