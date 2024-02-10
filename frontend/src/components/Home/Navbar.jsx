@@ -51,7 +51,7 @@ function Navbar({ cart, user, setUser }) {
               >
                 <li>
                   <div class="py-3 pb-5">
-                    <a href="index.html">
+                    <a>
                       <img
                         src="./src/assets/img/Group 1.png"
                         alt=""
@@ -136,7 +136,7 @@ function Navbar({ cart, user, setUser }) {
 
             {/* Desktop Navbar */}
             <div class="site-logo d-lg-flex d-sm-none d-none">
-              <a href="index.html">
+              <a>
                 <img
                   src="./src/assets/img/Group 1.png"
                   alt=""
@@ -155,7 +155,10 @@ function Navbar({ cart, user, setUser }) {
                 }}
               >
                 <a class="shopping-cart position-relative">
-                  <i class="fas fa-shopping-cart mx-5" style={{ fontSize: "x-large" }}>
+                  <i
+                    class="fas fa-shopping-cart mx-5"
+                    style={{ fontSize: "x-large" }}
+                  >
                     <span
                       class="badge badge-light text-black position-absolute top-2 end-2 mb-3 me-0 "
                       style={{
