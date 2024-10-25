@@ -32,7 +32,7 @@ function History() {
   const fetchOrders = async () => {
     try {
       const res = await axios.get(
-        `https://good-blue-dog-ring.cyclic.app/user/get-orders`,
+        `https://dinner-dash-web.onrender.com/user/get-orders`,
         {
           headers: { secret_token: user?.token },
         }

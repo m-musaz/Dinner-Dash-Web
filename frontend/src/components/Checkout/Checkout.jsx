@@ -36,7 +36,7 @@ function Checkout() {
     } else {
       try {
         const res = await axios.post(
-          `https://good-blue-dog-ring.cyclic.app/user/save-order`,
+          `https://dinner-dash-web.onrender.com/user/save-order`,
           {
             order: orders,
           },

@@ -20,7 +20,7 @@ const Home = () => {
   async function fetchCategories() {
     try {
       const res = await axios.get(
-        `https://good-blue-dog-ring.cyclic.app/categories/get-all`
+        `https://dinner-dash-web.onrender.com/categories/get-all`
       );
       setCategories(res?.data.data);
     } catch (err) {
@@ -30,7 +30,7 @@ const Home = () => {
   async function fetchItems() {
     try {
       const res = await axios.get(
-        `https://good-blue-dog-ring.cyclic.app/items/category-items`,
+        `https://dinner-dash-web.onrender.com/items/category-items`,
         { params: { catIDs: "65c6b22aa0c2d611445480d6" } }
       );
       setItems(res?.data.data);

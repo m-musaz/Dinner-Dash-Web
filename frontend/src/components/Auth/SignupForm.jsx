@@ -12,7 +12,7 @@ function SignupForm({ statefun }) {
   const handleSubmit = async (values) => {
     try {
       const res = await axios.post(
-        `https://good-blue-dog-ring.cyclic.app/signup`,
+        `https://dinner-dash-web.onrender.com/signup`,
         {
           fullName: values.name,
           email: values.email,

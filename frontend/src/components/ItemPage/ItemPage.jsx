@@ -47,7 +47,7 @@ function ItemPage() {
 
   const fetchItem = async () => {
     try {
-      const res = await axios.get(`https://good-blue-dog-ring.cyclic.app/items/get-by-id`, {
+      const res = await axios.get(`https://dinner-dash-web.onrender.com/items/get-by-id`, {
         params: { id: ItemID },
       });
       setItem(res?.data.data);

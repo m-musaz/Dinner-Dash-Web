@@ -17,7 +17,7 @@ function CategoryItems() {
   async function fetchCategories() {
     try {
       const res = await axios.get(
-        `https://good-blue-dog-ring.cyclic.app/categories/get-all`
+        `https://dinner-dash-web.onrender.com/categories/get-all`
       );
       setCategories(res?.data.data);
     } catch (err) {
@@ -47,7 +47,7 @@ function CategoryItems() {
   const fetchItems = async () => {
     try {
       const res = await axios.get(
-        `https://good-blue-dog-ring.cyclic.app/items/category-items`,
+        `https://dinner-dash-web.onrender.com/items/category-items`,
         { params: { catIDs: categoryID } }
       );
       console.log(res.data.data);
